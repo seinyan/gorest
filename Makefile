@@ -10,8 +10,6 @@ push:
 migrate:
 	go run ./cmd/db
 
-
-
 .PHONY: build
 build:
 	go build -v main.go
