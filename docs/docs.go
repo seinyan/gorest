@@ -21,8 +21,8 @@ var doc = `{
         "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "API Support",
-            "url": "http://www.swagger.io/support",
-            "email": "support@swagger.io"
+            "url": "http://seinyan.ru",
+            "email": "narek.seinyan@gmail.com"
         },
         "license": {
             "name": "Apache 2.0",
@@ -47,10 +47,10 @@ type swaggerInfo struct {
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
 	Version:     "1.0",
-	Host:        "petstore.swagger.io:8080",
-	BasePath:    "/v2",
+	Host:        "0.0.0.0:8000",
+	BasePath:    "/",
 	Schemes:     []string{},
-	Title:       "Swagger Example API TEST",
+	Title:       "Swagger API",
 	Description: "This is a sample server Petstore server.",
 }
 

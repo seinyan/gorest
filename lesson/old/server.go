@@ -1,40 +1,33 @@
-package api
+package old
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	_ "github.com/seinyan/gorest/docs"
+	"github.com/seinyan/gorest/internal/api/controller"
 	"github.com/seinyan/gorest/internal/database"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 type Server interface {
-	Start() error
+	Start()
 }
 
-type server struct {
-	Config *Config
-}
+type server struct {}
 
 func setupLogOutput()  {
 	//f, _ := os.Create("gin.log")
 	//gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 }
 
-func (s server) Start() error {
+func (s server) Start()  {
 	//setupLogOutput()
-
-
-
 
 	db, _ := database.NewDBConn()
 
 	server := gin.New()
 	server.Use(gin.Recovery(), gin.Logger())
-	server.GET("/users", func(context *gin.Context) {
-		fmt.Println("dd")
-	})
+	server.GET("/users", controller.GetUser)
 
 
 	//use ginSwagger middleware to serve the API docs
@@ -50,12 +43,10 @@ func (s server) Start() error {
 
 	DBconn, _ := db.DB()
 	defer DBconn.Close()
-
-	return nil
 }
 
 
 
-func New() Server {
-	return &server{}
+func NewServer() Server {
+	return server{}
 }

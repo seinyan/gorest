@@ -2,22 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a600c49-cd19-4a14-bc64-4249260e80a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/api/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/git_push.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/api/server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/make_swager_docs.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmd/migrate/migrate.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/config_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/controller/controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/controller/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/database/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/migrations/migrations.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/models/Call.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/CallRepository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/repository/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson/channels/channels.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson/goroutine/goroutine.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson/lessontest/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson/lessontest/app_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson/old/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson/old/test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/docs.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/swagger.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/swagger.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go Application" />
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
   <component name="GOROOT" url="file:///usr/lib/go-1.16" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
@@ -28,6 +66,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -35,6 +75,72 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="database.main" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/internal/api/controller" />
+      <recent name="$PROJECT_DIR$/internal/repository" />
+      <recent name="$PROJECT_DIR$/internal/models" />
+      <recent name="$PROJECT_DIR$/cmd" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lesson/old" />
+      <recent name="$PROJECT_DIR$/internal/database" />
+      <recent name="$PROJECT_DIR$/lesson" />
+      <recent name="$PROJECT_DIR$/max" />
+      <recent name="$PROJECT_DIR$/lesson/goroutine" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Test.go test gorest">
+    <configuration name="go build github.com/seinyan/gorest/channels.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="gorest" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="PACKAGE" />
+      <package value="github.com/seinyan/gorest/channels.go" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/../gorest|$PROJECT_DIR$/channels.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go run test.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="gorest" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="github.com/seinyan/gorest" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/test.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go test gorest" type="GoTestRunConfiguration" factoryName="Go Test" nameIsGenerated="true">
+      <module name="gorest" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-v -race -cover -timeout 3s ./..." />
+      <kind value="DIRECTORY" />
+      <package value="github.com/seinyan/gorest" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Make dev" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
+      <makefile filename="$PROJECT_DIR$/Makefile" target="" workingDirectory="" arguments="dev">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build github.com/seinyan/gorest/channels.go" />
+      <item itemvalue="Go Build.go run test.go" />
+      <item itemvalue="Go Test.go test gorest" />
+      <item itemvalue="Makefile Target.Make dev" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go run test.go" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
@@ -50,6 +156,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

@@ -1,0 +1,19 @@
+prod: &default
+  name: api_prod
+  api:
+    host: 0.0.0.0
+    port: 8000
+  database:
+    user: postgres
+    password: 8888
+    host: 127.0.0.1
+    port: 5432
+    dbname: gorest
+
+dev:
+  <<: *default
+  name: api_dev
+
+test:
+  <<: *default
+  name: api_dev

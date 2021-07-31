@@ -1,30 +1,28 @@
 .PHONY: docs
 docs:
-	./make_swager_docs.sh
+	./scripts/make_swager_docs.sh
 
 .PHONY: push
 push:
-	./git_push.sh
+	./scripts/gitPush.sh
 
 .PHONY: migrate
 migrate:
-	go run ./cmd/db
+	go run ./cmd/migrate
 
 .PHONY: build
 build:
-	go build -v main.go
+	go build -v ./cmd/api
 
 .PHONY: dev
 dev:
-	go run ./cmd/api
-
-
-
-
+	go run ./cmd/api -mode=dev
 
 .PHONY: test
 test:
-	go test -v -race -timeout 30s ./...
+	#go test -v -cover -mode=test -timeout 3s ./...
+
+	go test -v -race -cover -timeout 3s ./...
 
 
 .DEFAULT_GOAL := build
