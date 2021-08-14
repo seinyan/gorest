@@ -10,18 +10,14 @@ import (
 
 var DB *gorm.DB
 
-func NewDBConn() (*gorm.DB, error) {
-
-	var err error
-	//var DB *gorm.DB
-
+func NewDBConn(dsn string) (*gorm.DB, error) {
 
 	//dsn := fmt.Sprintf(
-	//	"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-	//	c.Host, c.Port, c.User, c.Password, c.DbName)
-	dsn := "host=localhost user=postgres password=8888 dbname=gorest port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+	//	"host=%s port=%s user=%s password=%s dbname=%s sslmode=%s TimeZone=%s",
+	//	conf.Host, conf.Port, conf.User, conf.Password, conf.DBName, conf.SslMode, conf.TimeZone,
+	//)
 
-	DB, _ = gorm.Open(postgres.New(postgres.Config{
+	DB, err := gorm.Open(postgres.New(postgres.Config{
 		DSN:                  dsn,
 		PreferSimpleProtocol: true, // disables implicit prepared statement usage
 	}), &gorm.Config{
@@ -32,9 +28,8 @@ func NewDBConn() (*gorm.DB, error) {
 		fmt.Println(err)
 	}
 
-
 	conn, err := DB.DB()
-	conn.Ping()
+	//conn.Ping()
 
 	conn.SetMaxIdleConns(10)
 	conn.SetMaxOpenConns(100)

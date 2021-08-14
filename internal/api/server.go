@@ -1,61 +1,46 @@
 package api
 
 import (
-	"fmt"
+	"context"
 	"github.com/gin-gonic/gin"
-	_ "github.com/seinyan/gorest/docs"
-	"github.com/seinyan/gorest/internal/database"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
+	"net"
+
+	//"github.com/gin-gonic/gin"
+	"github.com/seinyan/gorest/config"
+
+	"net/http"
+	"time"
 )
 
 type Server interface {
-	Start() error
+	Run(router *gin.Engine) error
+	Shutdown(ctx context.Context) error
 }
 
 type server struct {
-	Config *Config
+	Addr       string
+	config     *config.Config
+	httpServer *http.Server
 }
 
-func setupLogOutput()  {
-	//f, _ := os.Create("gin.log")
-	//gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+func (s *server) Shutdown(ctx context.Context) error {
+	return s.httpServer.Shutdown(ctx)
 }
 
-func (s server) Start() error {
-	//setupLogOutput()
+func (s *server) Run(router *gin.Engine) error {
+	s.httpServer = &http.Server{
+		Addr:           net.JoinHostPort("", "8000"),
+		Handler:        router, // http.HandlerFunc(slowHandler),
+		ReadTimeout:    10 * time.Second,
+		WriteTimeout:   10 * time.Second,
+		MaxHeaderBytes: 1 << 20, // 1 MB
+	}
 
-
-
-
-	db, _ := database.NewDBConn()
-
-	server := gin.New()
-	server.Use(gin.Recovery(), gin.Logger())
-	server.GET("/users", func(context *gin.Context) {
-		fmt.Println("dd")
-	})
-
-
-	//use ginSwagger middleware to serve the API docs
-	//http://127.0.0.1:9000/swagger/index.html
-	//https://github.com/swaggo/swag/tree/master/example
-	server.GET("/", func(ctx *gin.Context) {
-		//Redirect to docs page
-		ctx.Redirect(301,  "/swagger/index.html")
-	})
-	server.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-
-	server.Run("0.0.0.0:8000")
-
-	DBconn, _ := db.DB()
-	defer DBconn.Close()
-
-	return nil
+	return s.httpServer.ListenAndServe()
 }
 
-
-
-func New() Server {
-	return &server{}
+func NewServer(conf *config.Config) Server {
+	return &server{
+		config: conf,
+	}
 }

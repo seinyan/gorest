@@ -9,6 +9,8 @@ prod: &default
     host: 127.0.0.1
     port: 5432
     dbname: gorest
+    time_zone: Europe/Moscow
+    ssl_mode: disable
 
 dev:
   <<: *default

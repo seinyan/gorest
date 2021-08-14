@@ -1,12 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // @title Swagger API
 // @version 1.0
 // @description This is a sample server Petstore server.
 // @termsOfService http://swagger.io/terms/
-
 // @contact.name API Support
 // @contact.url http://seinyan.ru
 // @contact.email narek.seinyan@gmail.com
@@ -16,4 +17,6 @@ import "fmt"
 // @BasePath /
 func main() {
 	fmt.Println("main")
+
 }
+

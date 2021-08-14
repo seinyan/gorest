@@ -1,11 +1,14 @@
 package main
 
 import (
-	"fmt"
+	"github.com/seinyan/gorest/config"
 	"github.com/seinyan/gorest/internal/api"
+	"github.com/seinyan/gorest/pkg/logging"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 )
-
-
 
 // @title Swagger API
 // @version 1.0
@@ -20,12 +23,74 @@ import (
 // @BasePath /
 func main() {
 
-	config, _ := api.NewConfig()
-	fmt.Println(config)
 
-	//s := api.New()
-	//if err := s.Start(); err != nil {
-	//	log.Fatal()
+	//log := logrus.New()
+	//log.SetLevel(logrus.InfoLevel)
+	////log.SetReportCaller(true)
+	//log.Formatter = &logrus.TextFormatter{
+	//	//DisableColors: true,
+	//	FullTimestamp: true,
 	//}
+	//
+	//log.Error("Err: ", errors.New("dsada"))
+
+	logger := logging.New()
+	logger.Error("EEE")
+
+
+	/*	 */
+
+	conf, err := config.New()
+	if err != nil {
+		logger.Fatal(err)
+	}
+
+	logger.Info(*conf)
+
+	router := api.NewRoutes()
+	srv := api.NewServer(conf)
+	go func() {
+		if err := srv.Run(router); err != nil {
+			logger.Error("http server run error: ", err.Error())
+		}
+	}()
+
+
+	// Handling OS signal
+
+	logger.Info("Listen os signal ...")
+
+	quit := make(chan os.Signal, 2)
+	signal.Notify(quit, syscall.SIGTERM, syscall.SIGINT)
+	<-quit
+
+	logger.Info("Shut down please wait ...")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+	if err := srv.Shutdown(ctx); err != nil {
+		logger.Fatal("Shut down Error: %s", err.Error())
+	}
+
+	logger.Info("Shut down success")
+
+
+
+	//if err := db.Close(); err != nil {
+	//	logrus.Errorf("error occured on db connection close: %s", err.Error())
+	//}
+
+	//db, err := database.NewDBConn(conf.DatabaseUrl)
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//
+	//s := api.New(conf)
+	//if err := s.Start(); err != nil {
+	//	log.Fatal(err)
+	//}
+	//
+	//DBconn, _ := db.DB()
+	//defer DBconn.Close()
 }
 

@@ -1,52 +1,53 @@
-package old
+package main
 
 import (
 	"github.com/gin-gonic/gin"
+	config "github.com/seinyan/gorest/config"
 	_ "github.com/seinyan/gorest/docs"
-	"github.com/seinyan/gorest/internal/api/controller"
-	"github.com/seinyan/gorest/internal/database"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 type Server interface {
-	Start()
+	Start() error
 }
 
-type server struct {}
+type server struct {
+	Config *config.Config
+}
 
 func setupLogOutput()  {
 	//f, _ := os.Create("gin.log")
 	//gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
 }
 
-func (s server) Start()  {
+func (s server) Start() error {
 	//setupLogOutput()
 
-	db, _ := database.NewDBConn()
-
-	server := gin.New()
-	server.Use(gin.Recovery(), gin.Logger())
-	server.GET("/users", controller.GetUser)
-
+	router := gin.New()
+	router.Use(gin.Recovery(), gin.Logger())
+	router.GET("/users", func(ctx *gin.Context) {
+		ctx.JSON(200, gin.H{
+			"users": "users",
+		})
+	})
 
 	//use ginSwagger middleware to serve the API docs
 	//http://127.0.0.1:9000/swagger/index.html
 	//https://github.com/swaggo/swag/tree/master/example
-	server.GET("/", func(ctx *gin.Context) {
+	router.GET("/", func(ctx *gin.Context) {
 		//Redirect to docs page
 		ctx.Redirect(301,  "/swagger/index.html")
 	})
-	server.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	server.Run("0.0.0.0:8000")
+	router.Run(s.Config.ServerAddr)
 
-	DBconn, _ := db.DB()
-	defer DBconn.Close()
+	return nil
 }
 
-
-
-func NewServer() Server {
-	return server{}
+func New(conf *config.Config) Server {
+	return &server{
+		Config: conf,
+	}
 }
