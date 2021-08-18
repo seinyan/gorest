@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="AutoTestManager">
     <enabled-run-configurations>
       <run-configuration type="GoTestRunConfiguration" name="go test gorest" />
@@ -7,41 +10,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5a600c49-cd19-4a14-bc64-4249260e80a1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.dev.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.prod.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.test.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/migrate/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/config_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/api/routing.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/repository/CallRepository_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/logging/logging.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/api/apiserver.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dev.env" beforeDir="false" afterPath="$PROJECT_DIR$/.dev.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c3cff6ad-b439-48f2-abf0-d2c4a1f1290c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c3cff6ad-b439-48f2-abf0-d2c4a1f1290c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prod.env" beforeDir="false" afterPath="$PROJECT_DIR$/.prod.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.test.env" beforeDir="false" afterPath="$PROJECT_DIR$/.test.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/api/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/migrate/migrate.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/docs.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/swagger.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/swagger.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/migrate/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/api/config.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/api/config_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/api/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/database/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/database/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/repository/CallRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/repository/CallRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/repository/repository.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson/channels/channels.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson/goroutine/goroutine.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson/lessontest/app.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson/lessontest/app_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson/old/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lesson/old/test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/gitPush.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/gitPush.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/make_swager_docs.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/make_swager_docs.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/routing.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/api/routing.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/api/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/httpserver/httpserver.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/database/db.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/migrations/migrations.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/models/Call.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/CallRepository.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/repository/CallRepository_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/logging/logging.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/logging/logging.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,10 +74,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pkg" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -99,11 +91,11 @@
       <recent name="$PROJECT_DIR$/internal/models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pkg/httpserver" />
       <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/pkg" />
       <recent name="$PROJECT_DIR$/scripts" />
-      <recent name="$PROJECT_DIR$/lesson/old" />
     </key>
   </component>
   <component name="RunManager" selected="Makefile Target.Make dev">

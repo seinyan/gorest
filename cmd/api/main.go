@@ -1,8 +1,10 @@
 package main
 
 import (
+	"context"
 	"github.com/seinyan/gorest/config"
 	"github.com/seinyan/gorest/internal/api"
+	"github.com/seinyan/gorest/pkg/httpserver"
 	"github.com/seinyan/gorest/pkg/logging"
 	"os"
 	"os/signal"
@@ -23,32 +25,25 @@ import (
 // @BasePath /
 func main() {
 
-
-	//log := logrus.New()
-	//log.SetLevel(logrus.InfoLevel)
-	////log.SetReportCaller(true)
-	//log.Formatter = &logrus.TextFormatter{
-	//	//DisableColors: true,
-	//	FullTimestamp: true,
-	//}
-	//
-	//log.Error("Err: ", errors.New("dsada"))
-
-	logger := logging.New()
-	logger.Error("EEE")
-
-
-	/*	 */
-
 	conf, err := config.New()
 	if err != nil {
-		logger.Fatal(err)
+		panic("Config error: " + err.Error())
 	}
+
+
+
+	logger := logging.New()
+	//err := errors.New("test")
+	//logger.Error("Error ", err)
+	//logger.Warning("Error ", err)
+	//logger.Info("Error ", err)
+	//logger.Fatal("Error ", err)
+
 
 	logger.Info(*conf)
 
 	router := api.NewRoutes()
-	srv := api.NewServer(conf)
+	srv := httpserver.NewServer(conf.Port)
 	go func() {
 		if err := srv.Run(router); err != nil {
 			logger.Error("http server run error: ", err.Error())
@@ -73,24 +68,5 @@ func main() {
 	}
 
 	logger.Info("Shut down success")
-
-
-
-	//if err := db.Close(); err != nil {
-	//	logrus.Errorf("error occured on db connection close: %s", err.Error())
-	//}
-
-	//db, err := database.NewDBConn(conf.DatabaseUrl)
-	//if err != nil {
-	//	log.Fatal(err)
-	//}
-	//
-	//s := api.New(conf)
-	//if err := s.Start(); err != nil {
-	//	log.Fatal(err)
-	//}
-	//
-	//DBconn, _ := db.DB()
-	//defer DBconn.Close()
 }
 

@@ -1,12 +1,9 @@
-package api
+package httpserver
 
 import (
 	"context"
 	"github.com/gin-gonic/gin"
 	"net"
-
-	//"github.com/gin-gonic/gin"
-	"github.com/seinyan/gorest/config"
 
 	"net/http"
 	"time"
@@ -18,8 +15,7 @@ type Server interface {
 }
 
 type server struct {
-	Addr       string
-	config     *config.Config
+	Port       string
 	httpServer *http.Server
 }
 
@@ -27,10 +23,10 @@ func (s *server) Shutdown(ctx context.Context) error {
 	return s.httpServer.Shutdown(ctx)
 }
 
-func (s *server) Run(router *gin.Engine) error {
+func (s *server) Run(handler *gin.Engine) error {
 	s.httpServer = &http.Server{
-		Addr:           net.JoinHostPort("", "8000"),
-		Handler:        router, // http.HandlerFunc(slowHandler),
+		Addr:           net.JoinHostPort("", s.Port),
+		Handler:        handler, // http.HandlerFunc(slowHandler),
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20, // 1 MB
@@ -39,8 +35,8 @@ func (s *server) Run(router *gin.Engine) error {
 	return s.httpServer.ListenAndServe()
 }
 
-func NewServer(conf *config.Config) Server {
+func NewServer(port string) Server {
 	return &server{
-		config: conf,
+		Port: port,
 	}
 }

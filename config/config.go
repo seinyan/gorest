@@ -10,16 +10,9 @@ import (
 )
 
 type Config struct {
-	Mode       string
-	ServerAddr string `mapstructure:"SERVER_ADDR"`
-	DBUrl      string `mapstructure:"DATABASE_URL"`
-	//DBHost     string `mapstructure:"DATABASE_HOST"`
-	//DBPort     string `mapstructure:"DATABASE_PORT"`
-	//DBUser     string `mapstructure:"DATABASE_USER"`
-	//DBPass     string `mapstructure:"DATABASE_PASSWORD"`
-	//DBName     string `mapstructure:"DATABASE_NAME"`
-	//DBSslMode  string `mapstructure:"DATABASE_SSLMODE"`
-	//DBTz       string `mapstructure:"DATABASE_TZ"`
+	Mode  string
+	Port  string `mapstructure:"PORT"`
+	DBUrl string `mapstructure:"DATABASE_URL"`
 }
 
 func (c *Config) checkConfig() error {
